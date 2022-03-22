@@ -23,9 +23,9 @@
               <button id="DocsBttn" onclick="changeDcsStyle()" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #2684fc">Upload</button>
             </div>
 
-            <div id="DocsDiv" class="column left" element.style.display="none";>
+            <div id="DocsDiv" class="column left" style="displayNone()">
               <h1 class="title is-4">NICE CARDS BRUH</h1>
-              
+
               <div class="w3-card-4">
               <header class="w3-container w3-blue">
                 <h1>Header</h1>
