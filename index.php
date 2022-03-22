@@ -25,18 +25,10 @@
 
             <div id="NewDocsDiv" class="column left" style="display: none">
               <h1 class="title is-4">NICE CARDS BRUH</h1>
-
-              <div class="w3-card-4">
-              <header class="w3-container w3-blue">
-                <h1>Header</h1>
-              </header>
-              <div class="w3-container">
-                <p>Lorem ipsum...</p>
-              </div>
-              <footer class="w3-container w3-blue">
-                <h5>Footer</h5>
-              </footer>
-
+              <div class="cardss">
+                <div class="content">
+                  <p>Lorem ipsum...</p>
+                </div>
               </div>
             </div>
 
