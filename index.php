@@ -22,12 +22,31 @@
               <h1 class="title is-4">Upload your Google Docs</h1>
               <button id="DocsBttn" onclick="changeDcsStyle()" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #2684fc">Upload</button>
             </div>
+
+            <div id="DocsDiv" class="column left" element.style.display="none";>
+              <h1 class="title is-4">NICE CARDS BRUH</h1>
+              
+              <div class="w3-card-4">
+              <header class="w3-container w3-blue">
+                <h1>Header</h1>
+              </header>
+              <div class="w3-container">
+                <p>Lorem ipsum...</p>
+              </div>
+              <footer class="w3-container w3-blue">
+                <h5>Footer</h5>
+              </footer>
+
+              </div>
+            </div>
+
             <div id="SheetsDiv" class="column right has-text-centered">
               <h1 class="title is-4">Upload your Google Sheets</h1>
               <form action="./google/sheets.php" method="post">
                 <button id="SheetsBttn" onclick="changeShtsStyle()" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #21a464">Upload</button>
               </form>
             </div>
+
           </div>
         </div>
         <div class="column is-8 is-offset-2">
