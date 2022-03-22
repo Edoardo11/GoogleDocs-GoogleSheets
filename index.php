@@ -18,14 +18,14 @@
       <div class="columns is-multiline">
         <div class="column is-8 is-offset-2 register">
           <div class="columns">
-            <div class="column left">
+            <div id="DocsDiv" class="column left">
               <h1 class="title is-4">Upload your Google Docs</h1>
-              <button class="button is-block is-primary is-fullwidth is-medium" style="background-color: #2684fc">Upload</button>
+              <button id="DocsBttn" onclick="changeDcsStyle()" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #2684fc">Upload</button>
             </div>
-            <div class="column right has-text-centered">
+            <div id="SheetsDiv" class="column right has-text-centered">
               <h1 class="title is-4">Upload your Google Sheets</h1>
               <form action="./google/sheets.php" method="post">
-                <button class="button is-block is-primary is-fullwidth is-medium" style="background-color: #21a464">Upload</button>
+                <button id="SheetsBttn" onclick="changeShtsStyle()" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #21a464">Upload</button>
               </form>
             </div>
           </div>
@@ -53,4 +53,4 @@
     </section>
   </body>
 
-</html>
+</html> 
