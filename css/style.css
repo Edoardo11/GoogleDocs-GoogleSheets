@@ -102,3 +102,12 @@
     color: var(--textLight);
     margin-right: 1rem;
   }
+
+
+
+  #copertine{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
