@@ -114,11 +114,11 @@
 
 .cardss  {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 32%;
+  top: 60%;
   transform: translate(-50%, -50%);
   height: 200px;
-  width: 300px;
+  width: 250px;
   background: #f2f2f2;
   overflow: hidden;
   border-radius: 20px;
