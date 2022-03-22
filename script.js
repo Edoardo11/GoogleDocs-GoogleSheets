@@ -1,8 +1,8 @@
   function changeDcsStyle(){
     var element = document.getElementById("DocsDiv");
     element.style.display = "none";
-    var element = document.getElementById("NewDocsDiv");
-    element.style.display = "block";
+    var element2 = document.getElementById("NewDocsDiv");
+    element2.style.display = "block";
 }
 
 function changeShtsStyle(){

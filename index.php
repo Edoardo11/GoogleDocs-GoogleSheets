@@ -23,7 +23,7 @@
               <button id="DocsBttn" onclick="changeDcsStyle()" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #2684fc">Upload</button>
             </div>
 
-            <div id="DocsDiv" class="column left" style="display: none">
+            <div id="NewDocsDiv" class="column left" style="display: none">
               <h1 class="title is-4">NICE CARDS BRUH</h1>
 
               <div class="w3-card-4">
