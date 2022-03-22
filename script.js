@@ -8,6 +8,6 @@
 function changeShtsStyle(){
     var element = document.getElementById("SheetsDiv");
     element.style.display = "none";
-    var element = document.getElementById("NewSheetsDiv");
-    element.style.display = "block";
+    var element2 = document.getElementById("NewSheetsDiv");
+    element2.style.display = "block";
 }
