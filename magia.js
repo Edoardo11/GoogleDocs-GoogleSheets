@@ -30,3 +30,5 @@ function creaLocandina(risultati){
         container.appendChild(cover);
     });
 }
+
+
