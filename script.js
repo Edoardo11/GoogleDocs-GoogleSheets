@@ -6,11 +6,15 @@ function changeDcsStyle(){
 }
 
 function getDocs(){
-  const xhttp = new XMLHttpRequest();
-  xhttp.onload = function() {
-    //foreach
-    document.getElementById("demo").innerHTML = this.responseText;
-  }
+  var xhr = new XMLHttpRequest();
+    xhr.addEventListener("readystatechange", function() {
+        if (this.readyState === this.DONE) {
+                var result=JSON.parse(this.responseText);
+                    console.log(result.results);
+                    risultatiRicerca = result.results;
+                    createDocCard(result.results);
+            }
+    });
   xhttp.open("GET", "https://www.googleapis.com/drive/v3/files?pageSize=1000&q=mimeType%3D%27application%2Fvnd.google-apps.document%27%20and%20trashed%3Dfalse");
   xhttp.send();
 }
