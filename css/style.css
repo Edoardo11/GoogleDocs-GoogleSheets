@@ -112,9 +112,23 @@
     flex-wrap: wrap;
 }
 
-.cardss  {
+.SheetsCards  {
   position: absolute;
   left: 33%;
+  top: 59%;
+  transform: translate(-50%, -50%);
+  height: 200px;
+  width: 250px;
+  background: #f2f2f2;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 20px 8px #d0d0d0;
+}
+
+.DocsCards  {
+  position: absolute;
+  left: 69%;
   top: 59%;
   transform: translate(-50%, -50%);
   height: 200px;

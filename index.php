@@ -25,7 +25,7 @@
 
             <div id="NewDocsDiv" class="column left" style="display: none">
               <h1 class="title is-4">Upload your Google Docs</h1>
-              <div class="cardss">
+              <div class="DocsCards">
                 <div class="content">
                   <p>Lorem ipsum...</p>
                 </div>
@@ -41,7 +41,7 @@
             
             <div id="NewSheetsDiv" class="column left" style="display: none">
               <h1 class="title is-4">Upload your Google Sheets</h1>
-              <div class="cardss">
+              <div class="SheetsCards">
                 <div class="content">
                   <p>Lorem ipsum...</p>
                 </div>
