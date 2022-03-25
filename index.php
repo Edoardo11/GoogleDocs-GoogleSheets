@@ -39,7 +39,7 @@
               </form>
             </div>
             
-            <div id="NewDocsDiv" class="column left" style="display: none">
+            <div id="NewSheetsDiv" class="column left" style="display: none">
               <h1 class="title is-4">Upload your Google Sheets</h1>
               <div class="cardss">
                 <div class="content">
