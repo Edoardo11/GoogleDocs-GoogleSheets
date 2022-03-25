@@ -114,8 +114,8 @@
 
 .SheetsCards  {
   position: absolute;
-  left: 33%;
-  top: 59%;
+  left: 65%;
+  top: 29%;
   transform: translate(-50%, -50%);
   height: 200px;
   width: 250px;
@@ -128,8 +128,8 @@
 
 .DocsCards  {
   position: absolute;
-  left: 69%;
-  top: 59%;
+  left: 33%;
+  top: 29%;
   transform: translate(-50%, -50%);
   height: 200px;
   width: 250px;
