@@ -24,7 +24,7 @@
             </div>
 
             <div id="NewDocsDiv" class="column left" style="display: none">
-              <h1 class="title is-4">NICE CARDS BRUH</h1>
+              <h1 class="title is-4">Upload your Google Docs</h1>
               <div class="cardss">
                 <div class="content">
                   <p>Lorem ipsum...</p>
@@ -37,6 +37,15 @@
               <form action="./google/sheets.php" method="post">
                 <button id="SheetsBttn" onclick="changeShtsStyle()" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #21a464">Upload</button>
               </form>
+            </div>
+            
+            <div id="NewDocsDiv" class="column left" style="display: none">
+              <h1 class="title is-4">Upload your Google Sheets</h1>
+              <div class="cardss">
+                <div class="content">
+                  <p>Lorem ipsum...</p>
+                </div>
+              </div>
             </div>
 
           </div>
