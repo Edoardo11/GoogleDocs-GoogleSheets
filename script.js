@@ -5,7 +5,7 @@ function changeDcsStyle(){
   element2.style.display = "block";
 }
 
-function getDocs(){
+function getDocs(){  //Richiesta apigoogle per ricevere tutti i docs google 
   var xhr = new XMLHttpRequest();
     xhr.addEventListener("readystatechange", function() {
         if (this.readyState === this.DONE) {
@@ -18,18 +18,19 @@ function getDocs(){
   xhttp.send();
 }
 
-function createDocCard(result){
-  var container = document.querySelector("#copertine");
+function createDocCard(result){ //Costruisce le copertine dei docs all'interno del div ("docs" in index.php)
+  var container = document.querySelector("#docs");
   container.innerHTML = "";
   result.forEach((element, i) => {
-      let cover = document.createElement("img");
-      cover.src="https://image.tmdb.org/t/p/w500" + element.poster_path;
-      cover.className = "copertina";
-      cover.setAttribute("onclick", "mostraDescrizione(" + i + ")");
-      cover.setAttribute("data-bs-toggle", "modal");
-      cover.setAttribute("data-bs-target", "#exampleModal");
+      let cover = document.createElement("gDoc");
+      cover.className = "doc";
+      cover.setAttribute("onclick", "getDocId(" + i + ")"); //Necessario per prendere l'id del doc
       container.appendChild(cover);
   });
+}
+
+function getDocId(){
+
 }
 
 function changeShtsStyle(){
