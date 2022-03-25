@@ -11,7 +11,6 @@ function getDocs(){
         if (this.readyState === this.DONE) {
                 var result=JSON.parse(this.responseText);
                     console.log(result.results);
-                    risultatiRicerca = result.results;
                     createDocCard(result.results);
             }
     });
