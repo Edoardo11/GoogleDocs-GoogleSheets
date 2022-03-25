@@ -1,4 +1,5 @@
 function changeDcsStyle(){
+
   var element = document.getElementById("DocsDiv");
   element.style.display = "none";
   var element2 = document.getElementById("NewDocsDiv");
@@ -6,19 +7,22 @@ function changeDcsStyle(){
 }
 
 function getDocs(){  //Richiesta apigoogle per ricevere tutti i docs google 
-  var xhr = new XMLHttpRequest();
-    xhr.addEventListener("readystatechange", function() {
-        if (this.readyState === this.DONE) {
-                var result=JSON.parse(this.responseText);
-                    console.log(result.results);
-                    createDocCard(result.results);
-            }
-    });
-  xhttp.open("GET", "https://www.googleapis.com/drive/v3/files?pageSize=1000&q=mimeType%3D%27application%2Fvnd.google-apps.document%27%20and%20trashed%3Dfalse");
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+      let result = JSON.parse(this.responseText);
+      createDocCard(result.files);
+      console.log(result.files);
+    }
+  };
+  xhttp.open("GET", "http://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/test/getDocs.php", true);
   xhttp.send();
 }
 
 function createDocCard(result){ //Costruisce le copertine dei docs all'interno del div ("docs" in index.php)
+
   var container = document.querySelector("#docs");
   container.innerHTML = "";
   result.forEach((element, i) => {
