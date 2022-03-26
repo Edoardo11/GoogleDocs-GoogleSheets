@@ -167,3 +167,22 @@ input:focus {
 .doc:hover {
   transform: scale(1.04);
 }
+
+#sheets {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.sheet {
+  height: 100px !important;
+  width: auto !important;
+  padding: 10px;
+  transition: all 0.3s;
+  border-radius: 50px;
+}
+
+.sheet:hover {
+  transform: scale(1.04);
+}

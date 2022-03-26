@@ -18,6 +18,7 @@
     <div class="columns is-multiline">
       <div class="column is-8 is-offset-2 register">
         <div class="columns">
+
           <div id="DocsDiv" class="column left">
             <h1 class="title is-4">Upload your Google Docs</h1>
             <button id="DocsBttn" onclick="changeDcsStyle(); getDocs();" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #2684fc">Upload</button>
@@ -35,16 +36,15 @@
 
           <div id="SheetsDiv" class="column right has-text-centered">
             <h1 class="title is-4">Upload your Google Sheets</h1>
-            <form action="./google/sheets.php" method="post">
-              <button id="SheetsBttn" onclick="changeShtsStyle()" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #21a464">Upload</button>
-            </form>
+            <button id="SheetsBttn" onclick="changeShtsStyle(); getSheets();" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #21a464">Upload</button>
           </div>
 
           <div id="NewSheetsDiv" class="column right has-text-centered" style="display: none">
             <h1 class="title is-4">Upload your Google Sheets</h1>
             <div class="SheetsCards">
-              <div class="content">
-                <p>Lorem ipsum...</p>
+              <div id="sheets">
+                <!-- Div dove inserisco tutte le copertine degli sheets -->
+
               </div>
             </div>
           </div>
