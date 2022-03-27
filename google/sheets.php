@@ -1,14 +1,12 @@
 <?php
 session_start();
-
 require '../vendor/autoload.php';
-
-$secrets = json_decode(file_get_contents("secrets.json"), true);
+  $secrets = json_decode(file_get_contents("credentials.json"), true);
 
   // init configuration
-  $clientID = $secrets["googleapi"]["clientID"];
-  $clientSecret = $secrets["googleapi"]["clientSecret"];
-  $redirectUri = 'http://localhost/google/oauth';
+  $clientID = $secrets["web"]["client_id"];
+  $clientSecret = $secrets["web"]["client_secret"];
+  $redirectUri = 'http://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/sheets.php';
 
 // create Client Request to access Google API
 $client = new Google_Client();
@@ -17,45 +15,24 @@ $client->setClientSecret($clientSecret);
 $client->setRedirectUri($redirectUri);
 $client->addScope("email");
 $client->addScope("profile");
-  
+$client->addScope(Google_Service_Drive::DRIVE);
+$client->addScope(Google_Service_Drive::DRIVE_FILE);
 
-if(isset($_SESSION['Gauth'])){
-	$tempglogin_email=$_SESSION['Gauth']['email'];
-    require('rest/tempglogin.php');
-    if($tempglogin_check){
-    	$_SESSION["username"]=$tempglogin_username;
-    	$_SESSION["logged"]=true;
-		header("location: https://francescodandreastudente.altervista.org/showPilot/account");
-    } else {
-		header("location: https://francescodandreastudente.altervista.org/showPilot/account?le=Gauth error. Please log in using your email and password.");
-    }
-} else {
-// authenticate code from Google OAuth Flow
-if(isset($_REQUEST['code'])) {
-  $token = $client->fetchAccessTokenWithAuthCode($_REQUEST['code']);
-  $client->setAccessToken($token['access_token']);
-   
+  $token = $client->fetchAccessTokenWithAuthCode($_SESSION['code']);
+  //$client->setAccessToken($token['access_token']);
+
+
   // get profile info
   $google_oauth = new Google_Service_Oauth2($client);
   $google_account_info = $google_oauth->userinfo->get();
-  $_SESSION['Gauth']['email'] = $google_account_info->email;
-  $_SESSION['Gauth']['familyName'] = $google_account_info->familyName;
-  $_SESSION['Gauth']['givenName'] = $google_account_info->givenName;
-  $_SESSION['Gauth']['id'] = $google_account_info->id;
-  $_SESSION['Gauth']['picture'] = $google_account_info->picture;
-  
-  $tempglogin_email=$_SESSION['Gauth']['email'];
-  require('rest/tempglogin.php');
-  if($tempglogin_check){
-    $_SESSION["username"]=$tempglogin_username;
-    $_SESSION["logged"]=true;
-	header("location: https://francescodandreastudente.altervista.org/showPilot/account");
-  } else {
-    require('webchunks/setuppass.php');
-  }
-  // now you can use this profile info to create account in your website and make user logged in.
-} else {
-  $authurl=$client->createAuthUrl();
-}
-}
-?>
+
+	$service = new Google_Service_Sheets($client);
+
+ 	$spreadsheetId = $_GET["id"];
+	$get_range = "A1:C13";
+       
+	$response = $service->spreadsheets_values->get($spreadsheetId, $get_range);
+	$values = $response->getValues();
+    echo json_encode($response);
+
+?>

@@ -34,6 +34,7 @@ if(isset($_SESSION['Gauth'])){
 if(isset($_REQUEST['code'])) {
   $token = $client->fetchAccessTokenWithAuthCode($_REQUEST['code']);
   $client->setAccessToken($token['access_token']);
+  $_SESSION["token"]=$token['access_token'];
    
   // get profile info
   $google_oauth = new Google_Service_Oauth2($client);
@@ -51,4 +52,4 @@ if(isset($_REQUEST['code'])) {
   echo $client->createAuthUrl();
 }
 }
-?>
+?>
