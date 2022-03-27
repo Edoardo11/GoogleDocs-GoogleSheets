@@ -108,6 +108,6 @@ function getSheetId(fileId){   //Funzione per prendere l'id, incompleta
 //End Funzioni ottieni docs e sheets -----------------------------------------------------------------------------------
 
 function oauth(){
-  window.open("http://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/clienting.php", '_blank').focus();
+  window.open("http://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/oauth.php", '_blank').focus();
   didOauth=true;
 }

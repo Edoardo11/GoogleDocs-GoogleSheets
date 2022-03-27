@@ -33,8 +33,7 @@ require '../vendor/autoload.php';
 
           $_SESSION["credentialsPath"] = json_encode($accessToken);
         } else {
-        	$authUrl = $client->createAuthUrl();
-            header("location: ".$authUrl);
+        	echo "noAuth";
         }
     }
     $client->setAccessToken($accessToken);

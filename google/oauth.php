@@ -1,55 +1,53 @@
 <?php
+
 session_start();
 
 require '../vendor/autoload.php';
 
-$secrets = json_decode(file_get_contents("secrets.json"), true);
+  $secrets = json_decode(file_get_contents("credentials.json"), true);
 
   // init configuration
-  $clientID = $secrets["googleapi"]["clientID"];
-  $clientSecret = $secrets["googleapi"]["clientSecret"];
-  $redirectUri = 'http://localhost/google/oauth.php';
+  $clientID = $secrets["web"]["client_id"];
+  $clientSecret = $secrets["web"]["client_secret"];
+  $redirectUri = 'http://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/clienting.php';
 
-// create Client Request to access Google API
-$client = new Google_Client();
-$client->setClientId($clientID);
-$client->setClientSecret($clientSecret);
-$client->setRedirectUri($redirectUri);
-$client->addScope("email");
-$client->addScope("profile");
-  
+  // create Client Request to access Google API
+  $client = new Google_Client();
+  $client->setClientId($clientID);
+  $client->setClientSecret($clientSecret);
+  $client->setRedirectUri($redirectUri);
+  $client->addScope("email");
+  $client->addScope("profile");
+  $client->addScope(Google_Service_Drive::DRIVE);
+  $client->addScope(Google_Service_Drive::DRIVE_FILE);
 
-if(isset($_SESSION['Gauth'])){
-	$tempglogin_email=$_SESSION['Gauth']['email'];
-    require('rest/tempglogin.php');
-    if($tempglogin_check){
-    	$_SESSION["username"]=$tempglogin_username;
-    	$_SESSION["logged"]=true;
-		header("location: http://localhost/google/oauth.php");
+    if (isset($_SESSION["credentialsPath"])) {
+        $accessToken = json_decode($_SESSION["credentialsPath"], true);
     } else {
-		header("location: http://localhost/google/oauth.php?le=Gauth error. Please log in using your email and password.");
+        // Request authorization from the user.
+        
+        if(isset($_GET["code"])){
+          $authCode = trim($_GET["code"]);
+          // Exchange authorization code for an access token.
+          $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
+
+          $_SESSION["credentialsPath"] = json_encode($accessToken);
+        } else {
+        	$authUrl = $client->createAuthUrl();
+            header("location: ".$authUrl);
+        }
     }
-} else {
-// authenticate code from Google OAuth Flow
-if(isset($_REQUEST['code'])) {
-  $token = $client->fetchAccessTokenWithAuthCode($_REQUEST['code']);
-  $client->setAccessToken($token['access_token']);
-  $_SESSION["token"]=$token['access_token'];
-   
-  // get profile info
-  $google_oauth = new Google_Service_Oauth2($client);
-  $google_account_info = $google_oauth->userinfo->get();
-  $_SESSION['Gauth']['email'] = $google_account_info->email;
-  $_SESSION['Gauth']['familyName'] = $google_account_info->familyName;
-  $_SESSION['Gauth']['givenName'] = $google_account_info->givenName;
-  $_SESSION['Gauth']['id'] = $google_account_info->id;
-  $_SESSION['Gauth']['picture'] = $google_account_info->picture;
-  
-    $_SESSION["username"]=$tempglogin_username;
-    $_SESSION["logged"]=true;
-	header("location: http://localhost/google/oauth.php");
-} else {
-  echo $client->createAuthUrl();
-}
-}
-?>
+    $client->setAccessToken($accessToken);
+
+    // Refresh the token if it's expired.
+    if ($client->isAccessTokenExpired()) {
+        $client->fetchAccessTokenWithRefreshToken($client->getRefreshToken());
+        $_SESSION["credentialsPath"]=json_encode($client->getAccessToken());
+    }
+
+if(isset($_SESSION["credentialsPath"])){
+?>
+<script>
+	window.close();
+</script>
+<?php } ?>
