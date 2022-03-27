@@ -24,6 +24,7 @@ function getDocs(){  //Richiesta apigoogle per ricevere tutti i docs google ----
     if (this.readyState == 4 && this.status == 200) {
       let result = JSON.parse(this.responseText);
       createDocCard(result.files);
+      changeDcsStyle(); 
       console.log(result.files);
     }
   };
@@ -69,6 +70,7 @@ function getSheets(){
     if (this.readyState == 4 && this.status == 200) {
       let result = JSON.parse(this.responseText);
       createSheetCard(result.files);
+      changeShtsStyle(); 
       console.log(result.files);
     }
   };
