@@ -21,7 +21,7 @@
 
           <div id="DocsDiv" class="column left">
             <h1 class="title is-4">Upload your Google Docs</h1>
-            <button id="DocsBttn" onclick="getDocs()" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #2684fc">Upload</button>
+            <button id="DocsBttn" onclick="changeDcsStyle(); getDocs();" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #2684fc">Upload</button>
           </div>
 
           <div id="NewDocsDiv" class="column left" style="display: none">
@@ -36,7 +36,7 @@
 
           <div id="SheetsDiv" class="column right has-text-centered">
             <h1 class="title is-4">Upload your Google Sheets</h1>
-            <button id="SheetsBttn" onclick="getSheets()" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #21a464">Upload</button>
+            <button id="SheetsBttn" onclick="changeShtsStyle(); getSheets();" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #21a464">Upload</button>
           </div>
 
           <div id="NewSheetsDiv" class="column right has-text-centered" style="display: none">
