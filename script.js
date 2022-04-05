@@ -39,9 +39,9 @@ function createDocCard(result){ //Costruisce le copertine dei docs all'interno d
   container.innerHTML = "";
   result.forEach(element => { 
       let cover = document.createElement("doc");
-      cover.textContent = element;
+      cover.innerHTML = element.name;
       cover.className = "doc";
-      cover.setAttribute("onclick", "getDocId('" + toString(element) + "')"); //Necessario per prendere l'id del doc
+      cover.setAttribute("onclick", "getDocId('"+element.id+"')"); //Necessario per prendere l'id del doc
       container.appendChild(cover);
   });
 }
