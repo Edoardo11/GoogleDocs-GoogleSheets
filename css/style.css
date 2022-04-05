@@ -116,13 +116,16 @@ input:focus {
   left: 67%;
   top: 59%;
   transform: translate(-50%, -50%);
-  height: 200px;
+  height: 400px;
   width: 250px;
   background: #f2f2f2;
   overflow: hidden;
   border-radius: 20px;
   cursor: pointer;
   box-shadow: 0 0 20px 8px #d0d0d0;
+
+  
+  overflow-y:scroll;
 }
 
 .DocsCards {
@@ -130,13 +133,15 @@ input:focus {
   left: 33%;
   top: 59%;
   transform: translate(-50%, -50%);
-  height: 200px;
+  height: 400px;
   width: 250px;
   background: #f2f2f2;
   overflow: hidden;
   border-radius: 20px;
   cursor: pointer;
   box-shadow: 0 0 20px 8px #d0d0d0;
+
+  overflow-y:scroll;
 }
 
 .content {
@@ -157,7 +162,6 @@ input:focus {
 }
 
 .doc {
-  height: 100px !important;
   width: auto !important;
   padding: 10px;
   transition: all 0.3s;
@@ -176,7 +180,6 @@ input:focus {
 }
 
 .sheet {
-  height: 100px !important;
   width: auto !important;
   padding: 10px;
   transition: all 0.3s;
