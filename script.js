@@ -15,7 +15,7 @@ function changeShtsStyle(){
 }
 
 var didOauth=false;
-didOauth = true;
+
 //Funzioni ottieni doc e sheets
 function getDocs(){  //Richiesta apigoogle per ricevere tutti i docs google -----------------------------------------------------------------------------------
  if(didOauth){
