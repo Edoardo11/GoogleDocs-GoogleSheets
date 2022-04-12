@@ -27,6 +27,7 @@
           <div id="NewDocsDiv" class="column left" style="display: none">
             <h1 class="title is-4">Upload your Google Docs</h1>
             <div class="DocsCards">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
               <div id="docs">
                 <!-- Div dove inserisco tutte le copertine dei docs -->
 

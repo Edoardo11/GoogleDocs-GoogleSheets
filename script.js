@@ -28,7 +28,7 @@ function getDocs(){  //Richiesta apigoogle per ricevere tutti i docs google ----
       console.log(result.files);
     }
   };
-  xhttp.open("GET", "https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/getDocs.php", true);
+  xhttp.open("GET", "https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/test/getDocs.php", true);
   xhttp.send();
 } else oauth();
 }
@@ -38,7 +38,7 @@ function createDocCard(result){ //Costruisce le copertine dei docs all'interno d
   var container = document.querySelector("#docs");
   container.innerHTML = "";
   result.forEach(element => { 
-      let cover = document.createElement("doc");
+      let cover = document.createElement("div");
       cover.innerHTML = element.name;
       cover.className = "doc";
       cover.setAttribute("onclick", "getDocId('"+element.id+"')"); //Necessario per prendere l'id del doc
@@ -74,7 +74,7 @@ function getSheets(){
       console.log(result.files);
     }
   };
-  xhttp.open("GET", "https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/getSheets.php", true);
+  xhttp.open("GET", "https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/test/getSheets.php", true);
   xhttp.send();
   } else oauth();
 }
@@ -84,7 +84,7 @@ function createSheetCard(result){
   var container = document.querySelector("#sheets");
   container.innerHTML = "";
   result.forEach(element => { 
-      let cover = document.createElement("sheet");
+      let cover = document.createElement("div");
       cover.innerHTML = element.name;
       cover.className = "sheet";
       cover.setAttribute("onclick","getSheetId('"+element.id+"')");
@@ -112,4 +112,21 @@ function getSheetId(fileId){   //Funzione per prendere l'id, incompleta
 function oauth(){
   window.open("https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/oauth.php", '_blank').focus();
   didOauth=true;
+}
+
+function myFunction() {
+  var input, filter, docs, doc, a, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  docs = document.getElementById("myUL");
+  doc = docs.getElementsByTagName("doc");
+  for (i = 0; i < doc.length; i++) {
+      a = doc[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        doc[i].style.display = "";
+      } else {
+        doc[i].style.display = "none";
+      }
+  }
 }
