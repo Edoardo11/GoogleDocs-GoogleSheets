@@ -22,12 +22,13 @@
           <div id="DocsDiv" class="column left">
             <h1 class="title is-4">Upload your Google Docs</h1>
             <button id="DocsBttn" onclick="getDocs();" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #2684fc">Upload</button>
+            <input type="button" onclick="location.href='https://docs.google.com/document/d/1Q1P4lYsJVaTaHkWxW78QaGuYwF8mZKn-U3RH9e8pJUk/copy'" value="View Template">
           </div>
 
           <div id="NewDocsDiv" class="column left" style="display: none">
             <h1 class="title is-4">Upload your Google Docs</h1>
             <div class="DocsCards">
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+              <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> -->
               <div id="docs">
                 <!-- Div dove inserisco tutte le copertine dei docs -->
 
@@ -38,6 +39,7 @@
           <div id="SheetsDiv" class="column right has-text-centered">
             <h1 class="title is-4">Upload your Google Sheets</h1>
             <button id="SheetsBttn" onclick="getSheets();" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #21a464">Upload</button>
+            <input type="button" onclick="location.href='https://docs.google.com/spreadsheets/d/1d7OtTz1nDKzn2WjvPkpz9252NkQUBjRWwQExDehBWcA/copy'" value="View Template">
           </div>
 
           <div id="NewSheetsDiv" class="column right has-text-centered" style="display: none">
@@ -64,6 +66,9 @@
               </span> &emsp;
             </div>
           </div>
+
+          <button id="SheetsBttn" onclick="mergeFiles();" class="button is-block is-primary is-fullwidth is-medium" style="background-color: #21a464; width: 30%">Merge</button>
+
           <div class="level-right">
             <small class="level-item" style="color: var(--textLight)">
               &copy; BDM & Co.

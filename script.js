@@ -48,6 +48,9 @@ function createDocCard(result){ //Costruisce le copertine dei docs all'interno d
 
 function getDocId(fileId){ //Funzione per prendere l'id, incompleta
 
+  var element = document.getElementsByClassName("DocsCards");
+  element.style.display = "none";
+
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -60,8 +63,6 @@ function getDocId(fileId){ //Funzione per prendere l'id, incompleta
 
   console.log("ID preso con successo:" + result);
 }
-
-
 
 function getSheets(){  
   if(didOauth){
@@ -105,6 +106,19 @@ function getSheetId(fileId){   //Funzione per prendere l'id, incompleta
   xhttp.send();
 
   console.log("ID preso con successo:" + result);
+}
+
+
+function mergeFiles(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      let result = JSON.parse(this.responseText);
+      console.log(result.files);
+    }
+  };
+  xhttp.open("GET", "http://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/test/action.php", true);
+  xhttp.send();
 }
 
 //End Funzioni ottieni docs e sheets -----------------------------------------------------------------------------------
