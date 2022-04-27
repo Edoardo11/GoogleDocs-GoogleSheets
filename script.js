@@ -108,7 +108,6 @@ function getSheetId(fileId){   //Funzione per prendere l'id, incompleta
   console.log("ID preso con successo:" + result);
 }
 
-
 function mergeFiles(){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
