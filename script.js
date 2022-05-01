@@ -1,5 +1,4 @@
 function changeDcsStyle(){
-
   var element = document.getElementById("DocsDiv");
   element.style.display = "none";
   var element2 = document.getElementById("NewDocsDiv");
@@ -7,7 +6,6 @@ function changeDcsStyle(){
 }
 
 function changeShtsStyle(){
-
     var element = document.getElementById("SheetsDiv");
     element.style.display = "none";
     var element2 = document.getElementById("NewSheetsDiv");
@@ -34,7 +32,6 @@ function getDocs(){  //Richiesta apigoogle per ricevere tutti i docs google ----
 }
 
 function createDocCard(result){ //Costruisce le copertine dei docs all'interno del div ("docs" in index.php)
-
   var container = document.querySelector("#docs");
   container.innerHTML = "";
   result.forEach(element => { 
@@ -47,7 +44,6 @@ function createDocCard(result){ //Costruisce le copertine dei docs all'interno d
 }
 
 function getDocId(fileId){ //Funzione per prendere l'id, incompleta
-
   var element = document.getElementsByClassName("DocsCards");
   element.style.display = "none";
 
@@ -81,7 +77,6 @@ function getSheets(){
 }
 
 function createSheetCard(result){ 
-
   var container = document.querySelector("#sheets");
   container.innerHTML = "";
   result.forEach(element => { 
@@ -94,7 +89,6 @@ function createSheetCard(result){
 }
 
 function getSheetId(fileId){   //Funzione per prendere l'id, incompleta
-
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
