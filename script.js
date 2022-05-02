@@ -110,7 +110,7 @@ function mergeFiles(){
       console.log(result.files);
     }
   };
-  xhttp.open("GET", "http://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/action.php", true);
+  xhttp.open("GET", "http://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/merge.php", true);
   xhttp.send();
 }
 
