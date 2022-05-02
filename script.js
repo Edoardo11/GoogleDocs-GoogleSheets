@@ -26,7 +26,7 @@ function getDocs(){  //Richiesta apigoogle per ricevere tutti i docs google ----
       console.log(result.files);
     }
   };
-  xhttp.open("GET", "https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/test/getDocs.php", true);
+  xhttp.open("GET", "https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/getDocs.php", true);
   xhttp.send();
 } else oauth();
 }
@@ -71,7 +71,7 @@ function getSheets(){
       console.log(result.files);
     }
   };
-  xhttp.open("GET", "https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/test/getSheets.php", true);
+  xhttp.open("GET", "https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/getSheets.php", true);
   xhttp.send();
   } else oauth();
 }
@@ -110,7 +110,7 @@ function mergeFiles(){
       console.log(result.files);
     }
   };
-  xhttp.open("GET", "http://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/test/action.php", true);
+  xhttp.open("GET", "http://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/action.php", true);
   xhttp.send();
 }
 
