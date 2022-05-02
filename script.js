@@ -21,6 +21,8 @@ function getDocs(){  //Richiesta apigoogle per ricevere tutti i docs google ----
       createDocCard(result.files);
       changeDcsStyle(); 
       console.log(result.files);
+    } else {
+      if(result.redirect) window.open(result.redirect, '_blank').focus();
     }
   };
   xhttp.open("GET", "https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/getDocs.php", true);
@@ -39,23 +41,6 @@ function createDocCard(result){ //Costruisce le copertine dei docs all'interno d
   });
 }
 
-function getDocId(fileId){ //Funzione per prendere l'id, incompleta
-  var element = document.getElementsByClassName("DocsCards");
-  element.style.display = "none";
-
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      let result = JSON.parse(this.responseText);
-      console.log(result.files);
-    }
-  };
-  xhttp.open("GET", "https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/selectDocs.php?file=" + fileId, true);
-  xhttp.send();
-
-  console.log("ID preso con successo:" + result);
-}
-
 function getSheets(){  
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -64,6 +49,8 @@ function getSheets(){
       createSheetCard(result.files);
       changeShtsStyle(); 
       console.log(result.files);
+    } else {
+      if(result.redirect) window.open(result.redirect, '_blank').focus();
     }
   };
   xhttp.open("GET", "https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/getSheets.php", true);
@@ -82,26 +69,14 @@ function createSheetCard(result){
   });
 }
 
-function getSheetId(fileId){   //Funzione per prendere l'id, incompleta
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      let result = JSON.parse(this.responseText);
-      console.log(result.files);
-    }
-  };
-  xhttp.open("GET", "https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/selectSheets.php?file=" + fileId, true);
-  xhttp.send();
-
-  console.log("ID preso con successo:" + result);
-}
-
 function mergeFiles(){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       let result = JSON.parse(this.responseText);
       console.log(result.files);
+    } else {
+      if(result.redirect) window.open(result.redirect, '_blank').focus();
     }
   };
   xhttp.open("GET", "http://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/merge.php", true);
