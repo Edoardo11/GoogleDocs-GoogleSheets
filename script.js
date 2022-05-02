@@ -12,11 +12,8 @@ function changeShtsStyle(){
     element2.style.display = "block";
 }
 
-var didOauth=false;
-
 //Funzioni ottieni doc e sheets
 function getDocs(){  //Richiesta apigoogle per ricevere tutti i docs google -----------------------------------------------------------------------------------
- if(didOauth){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -28,7 +25,6 @@ function getDocs(){  //Richiesta apigoogle per ricevere tutti i docs google ----
   };
   xhttp.open("GET", "https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/getDocs.php", true);
   xhttp.send();
-} else oauth();
 }
 
 function createDocCard(result){ //Costruisce le copertine dei docs all'interno del div ("docs" in index.php)
@@ -61,7 +57,6 @@ function getDocId(fileId){ //Funzione per prendere l'id, incompleta
 }
 
 function getSheets(){  
-  if(didOauth){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -73,7 +68,6 @@ function getSheets(){
   };
   xhttp.open("GET", "https://francescodandreastudente.altervista.org/GoogleDocs-GoogleSheets/google/getSheets.php", true);
   xhttp.send();
-  } else oauth();
 }
 
 function createSheetCard(result){ 
