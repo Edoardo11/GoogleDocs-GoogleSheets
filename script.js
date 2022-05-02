@@ -18,7 +18,9 @@ function getDocs(){  //Richiesta apigoogle per ricevere tutti i docs google ----
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       let result = JSON.parse(this.responseText);
-      if(result.redirect) window.open(result.redirect, '_blank').focus();
+      if(result.redirect) {
+        window.open(result.redirect, '_blank').focus();
+      }
       else {
         createDocCard(result.files);
         changeDcsStyle(); 
